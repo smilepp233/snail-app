@@ -45,7 +45,7 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-    st.page_link("pages/scenario1.py",
+    st.page_link("pages/scenario6.py",
                  label="Start Assignment", icon="🚀")
 
 

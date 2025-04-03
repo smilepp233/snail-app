@@ -3,7 +3,7 @@ import time
 import uuid
 
 
-def generate_response(prompt):
+def generate_response():
     """
     Function to generate a short, high accuracy response with no source but with review.
     Args:
@@ -15,7 +15,7 @@ def generate_response(prompt):
     response = "Snails can sleep for up to 13-15 hours at a time."
     for char in response:
         yield char
-        time.sleep(0.001)
+        time.sleep(0.005)
 
 
 def save_feedback(index):
@@ -26,7 +26,14 @@ def save_feedback(index):
 def main():
     st.title("Snail Sleep Duration Chat - Scenario 6")
     st.caption("Short Response | High Accuracy | No Source | With Review")
+    with st.expander("Chatbot Description"):
+        st.markdown(
+            """
+                    **Chatbot Description:**
 
+                    This intelligent tool is designed to provide detailed answers to your questions about snail sleep habits. Once you ask a question, the chatbot will respond by streaming its answer word-by-word, creating a dynamic and engaging experience. In addition, where applicable, relevant video references are displayed to offer extra visual context about the topic. Dive in and discover fascinating facts about snails in an interactive way!
+                    """
+        )
     # Initialize chat history and feedback
     if "history" not in st.session_state:
         st.session_state.history = []
@@ -35,37 +42,63 @@ def main():
     if "dislikes" not in st.session_state:
         st.session_state.dislikes = 0
 
-    # Initialize feedback keys if they don't exist
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
     for i in range(len(st.session_state.history)):
         key = f"feedback_{i}"
         if key not in st.session_state:
             st.session_state[key] = None
 
+    # Display chat history
+    for i, message in enumerate(st.session_state.messages):
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+            # Add feedback buttons for assistant messages
+            if message["role"] == "assistant":
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    st.feedback("thumbs", key=f"feedback_{i}")
+                with col2:
+                    # Only show the button if it hasn't been clicked already
+                    button_key = f"thumbs_up_{i}"
+                    if st.button("👍 100", key=button_key):
+                        if i not in st.session_state.thumbs_up_clicked:
+                            st.session_state.thumbs_up_clicked.add(i)
+                            st.toast("Thank you for your feedback!", icon="👍")
+                            # This forces a rerun to update the UI
+                            st.rerun()
+
     # Handle new user input
     if prompt := st.chat_input("How long do snails sleep?"):
         # Add user message to chat history
-        st.session_state.history.append({"role": "user", "content": prompt})
+        user_message = {"role": "user", "content": prompt}
+        st.session_state.history.append(user_message)
+        st.session_state.messages.append(user_message)
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Generate and display assistant response with typing effect
-        with st.chat_message("assistant"):
-            response = st.write_stream(generate_response(prompt))
+        # Create a unique but consistent key for this message
+        message_id = len(st.session_state.messages) - 1
 
+        with st.chat_message("assistant"):
+            response = st.write_stream(generate_response())
+            st.info("Source: General nature observations")
+
+            thumb_up = [":material/thumb_down:"]
             col1, col2 = st.columns([3, 1])
             with col1:
-                st.feedback(
-                    "thumbs",
-                    key=uuid.uuid4(),
-                    on_change=save_feedback,
-                    args=[len(st.session_state.history) - 1],
-                )
+                st.feedback("thumbs", key=f"feedback_{message_id}")
             with col2:
-                st.button(f"👍 {st.session_state.likes}")
+                if st.button("👍 100", key=f"thumbs_up_{message_id}"):
+                    st.session_state.thumbs_up_clicked.add(message_id)
+                    st.toast("Thank you for your feedback!", icon="👍")
 
-        # Add assistant response to chat history
-        st.session_state.history.append(
-            {"role": "assistant", "content": response})
+        assistant_message = {"role": "assistant",
+                             "content": response}
+        st.session_state.history.append(assistant_message)
+        st.session_state.messages.append(assistant_message)
 
 
 if __name__ == "__main__":
