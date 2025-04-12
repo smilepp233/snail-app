@@ -31,7 +31,7 @@ def save_feedback(index):
 def main():
     st.title("Snail Sleep Duration Chat - Scenario 16")
     st.caption("Long Response | High Accuracy | With Source | With Review")
-    with st.expander("Chatbot Description"):
+    with st.expander("Chatbot Description", expanded=True):
         st.markdown(
             """
                     **Chatbot Description:**
