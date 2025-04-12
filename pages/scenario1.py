@@ -3,6 +3,19 @@ import time
 from streamlit_star_rating import st_star_rating
 
 
+st.markdown(
+    """
+    <style>
+    [data-testid="stChatMessageContent"] h2{
+        font-size: 16px;
+    }
+   
+    ### Custom CSS for the chat message container
+    </style>
+    """, unsafe_allow_html=True
+)
+
+
 def generate_response():
     """
     Function to generate the assistant's response with a typing effect.
@@ -25,7 +38,7 @@ def generate_response():
         "The museum has had some good exhibitions lately. They are always changing, so there's usually something new to see. People seem to enjoy them, and they help make the museum a popular destination [1]. The museum also hosts various events and activities, which are fun for visitors. Additionally, the museum's café is quite nice, offering a variety of snacks and drinks for those who need a break from exploring. The gift shop is also worth visiting, with many unique items available for purchase [4].\n\n"
         "References:\n"
         "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
-        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%22z5few6y5%.com\n"
+        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%20z5few6y5%.com\n"
         "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
         "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
 
@@ -106,7 +119,7 @@ def main():
             st_star_rating(
                 label="",
                 maxValue=5,
-                size=22,
+                size=20,
                 defaultValue=fixed_rating,
                 key="rating",
                 customCSS="div { margin-bottom: 0px; }",
@@ -163,6 +176,7 @@ def main():
 
         with st.chat_message("assistant"):
             response = st.write_stream(generate_response())
+            st.markdown(response, unsafe_allow_html=True)
             st.markdown(
                 """
                 <div style="margin-top: 10px;">
@@ -170,7 +184,7 @@ def main():
                         🤖 Confidence Level: 2/10
                     </span>
                 </div>
-                <div style="margin-top: 5px;">
+                <div style="margin-top: 10px;">
                     <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
                         “Z” AI: I would rate the confidence level of my output as a 2 out of 10.
                     </span>

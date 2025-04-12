@@ -1,27 +1,55 @@
 import streamlit as st
 import time
-import uuid
+from streamlit_star_rating import st_star_rating
 
-import os
+
+st.markdown(
+    """
+    <style>
+    [data-testid="stChatMessageContent"] h2{
+        font-size: 16px;
+    }
+   
+    ### Custom CSS for the chat message container
+    </style>
+    """, unsafe_allow_html=True
+)
 
 
 def generate_response():
     """
-    Function to generate a long, low accuracy response with source but no review.
+    Function to generate the assistant's response with a typing effect.
     Args:
         prompt (str): The user's input prompt.
     Returns:
         str: The assistant's response.
     """
-    # Long, Low accuracy, With source, No review
-    response = """Snails sleep for around 3 hours each day, according to general nature observations. They don't have a regular sleep schedule like humans do. Instead, they take short naps throughout the day and night. According to field guides, snails are mostly active during the evening and nighttime when it's cooler and more humid. During dry periods, they might go into a longer sleep-like state as noted in basic mollusc literature. They usually find a safe spot before resting, often under leaves or in their shells.
 
-When snails sleep, they retract into their shells for protection as documented in naturalist journals. The sleep patterns can vary depending on the type of snail and environmental conditions according to amateur observations. Garden snails might sleep differently than aquatic snails as mentioned in hobby forums. Temperature and humidity play important roles in determining their activity cycles and sleep needs as noted in educational materials.
+    response = (
+        "## Introduction to the British Museum \n"
+        "The British Museum, located in Bloomsbury, London, is one of the world's largest and most important museums of human history and culture. Established in 1753, it was the first public national museum, founded on the collections of Sir Hans Sloane. The museum opened to the public in 1759 and has since grown to become a premier cultural institution [1].\n\n"
+        "## Location and Architecture\n"
+        "Situated on Great Russell Street, the museum is easily accessible via several London Underground stations. Its iconic Great Court, designed by Foster and Partners, is a notable architectural feature, providing a spacious environment for visitors to explore. The museum's location in Bloomsbury makes it a central hub for cultural activities in London [2].\n\n"
+        "## Collection Size and Significance\n"
+        "The British Museum houses over 8 million objects, documenting human culture from its beginnings to the present. This vast collection includes artifacts such as the Rosetta Stone and the Elgin Marbles. These items are not only significant for their historical value but also for their cultural and educational importance. The collection spans over two million years of human history, making it one of the most comprehensive in the world [3].\n\n"
+        "## Visitor Numbers\n"
+        "In recent years, the British Museum has consistently been one of the most visited attractions in the UK. In 2024, it welcomed approximately 6.5 million visitors, marking a significant increase from previous years. This high attendance is attributed to its engaging exhibitions and its status as a cultural icon [4].\n\n"
+        "## Notable Recent Exhibitions\n"
+        "Recent exhibitions have included \"Legion: life in the Roman army\" and \"Michelangelo: the last decades,\" which have been particularly popular among visitors [1]. These exhibitions highlight the museum's ability to curate engaging and educational displays that attract a wide audience. Additionally, the museum's temporary exhibitions often feature artifacts from around the world, showcasing its global reach and influence [4].\n\n"
+        "References:\n"
+        "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
+        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%20z5few6y5%.com\n"
+        "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
+        "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
 
-Snails in captivity might show different sleep patterns compared to those in the wild according to pet care websites. Pet snails often adjust their schedules to match when their owners feed them or interact with them. Basic guidebooks suggest that understanding snail sleep can help pet owners provide better care for these interesting creatures."""
+    )
     for char in response:
         yield char
-        time.sleep(0.001)
+        if char in ['.', '!', '?', '\n']:
+            # Slightly longer pause after sentences and line breaks
+            time.sleep(0.01)
+        else:
+            time.sleep(0.002)  # Faster typing for regular characters
 
 
 def save_feedback(index):
@@ -30,17 +58,37 @@ def save_feedback(index):
 
 
 def main():
-    st.title("Snail Sleep Duration Chat - Scenario 11")
-    st.caption("Long Response | Low Accuracy | With Source | No Review")
-    with st.expander("Chatbot Description"):
-        st.markdown(
-            """
-                    **Chatbot Description:**
 
-                    This intelligent tool is designed to provide detailed answers to your questions about snail sleep habits. Once you ask a question, the chatbot will respond by streaming its answer word-by-word, creating a dynamic and engaging experience. In addition, where applicable, relevant video references are displayed to offer extra visual context about the topic. Dive in and discover fascinating facts about snails in an interactive way!
-                    """
-        )
-    # Initialize chat history and feedback
+    st.markdown("""
+        <style>
+        .title {
+            font-size: 20px;  /* Bigger title */
+            color: #2E8B57;
+            text-align: left;
+            font-weight: bold;
+        }
+        .blue-bg {
+            background-color: #0000FF;  /* Blue background */
+            color: white;  /* White text for contrast */
+            padding: 2px 5px;  /* Small padding for better appearance */
+            border-radius: 3px;  /* Slight rounding */
+        }
+      
+        </style>
+        """,
+                unsafe_allow_html=True
+                )
+    st.markdown(
+        """
+            <div class="title">
+                Instruction: Please copy the following question to receive background information: <span class="blue-bg">"Discuss the history of the British Museum, including its location, collection size, visitor numbers, and notable recent exhibitions."</span>
+            </div>
+            """,
+        unsafe_allow_html=True
+    )
+    st.caption(
+        "Scenario 11 | 0 ALL | 0 Low Source | 1 High Self Rating | 0 Low Public Rating")
+
     if "history" not in st.session_state:
         st.session_state.history = []
     if "likes" not in st.session_state:
@@ -49,7 +97,57 @@ def main():
         st.session_state.dislikes = 0
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    if "thumbs_up_clicked" not in st.session_state:
+        st.session_state.thumbs_up_clicked = set()
 
+   # Initialize rating default value (but don't store in session_state yet)
+    fixed_rating = 1.5
+    rating_count = "120.3K"
+
+    if "rating" not in st.session_state:
+        st.session_state.rating = fixed_rating
+
+    with st.container(border=True):
+        st.markdown(
+            """
+            <h4>"Z" AI Background</h4>
+            """,
+            unsafe_allow_html=True
+        )
+        col1, col2 = st.columns([1, 3])
+        with col1:
+            st_star_rating(
+                label="",
+                maxValue=5,
+                size=20,
+                defaultValue=fixed_rating,
+                key="rating",
+                customCSS="div { margin-bottom: 0px; }",
+                read_only=True
+            )
+
+        with col2:
+            st.markdown(
+                f"""
+                <div style="display: flex; align-items: center; height: 100%;">
+                    <span style="font-size: 24px; font-weight: bold;">
+                        {fixed_rating}/5.0 (rated by {rating_count})
+                    </span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        st.markdown(
+            """
+            <div style="margin-top: 10px; margin-bottom: 30px;">
+                "Z" AI is an advanced artificial intelligence-powered search engine and chatbot tool that utilizes large language models (LLMs) to provide detailed and accurate information in response to user queries.
+            </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # Initialize feedback keys if they don't exist
     for i in range(len(st.session_state.history)):
         key = f"feedback_{i}"
         if key not in st.session_state:
@@ -63,7 +161,7 @@ def main():
             # Add feedback buttons for assistant messages
 
     # Handle new user input
-    if prompt := st.chat_input("How long do snails sleep?"):
+    if prompt := st.chat_input("Discuss the history of the British Museum, including its location, collection size, visitor numbers, and notable recent exhibitions."):
         # Add user message to chat history
         user_message = {"role": "user", "content": prompt}
         st.session_state.history.append(user_message)
@@ -71,21 +169,44 @@ def main():
         with st.chat_message("user"):
             st.markdown(prompt)
 
+        # Generate and display assistant response with typing effect
+
         # Create a unique but consistent key for this message
         message_id = len(st.session_state.messages) - 1
 
         with st.chat_message("assistant"):
             response = st.write_stream(generate_response())
-            st.info("Source: General nature observations")
-
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(current_dir)
-            video_path = os.path.join(
-                project_root, "videos", "snail_sleep.mp4")
-
-            st.video(video_path)
-            thumb_up = [":material/thumb_down:"]
-
+            st.markdown(response, unsafe_allow_html=True)
+            st.markdown(
+                """
+                <div style="margin-top: 10px;">
+                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                        🤖 Confidence Level: 8/10
+                    </span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                        "Z" AI: I would rate the confidence level of my output as an 8 out of 10.
+                    </span>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="https://hkbu.questionpro.com/t/AVqX2Z5xKf" target="_blank" style="text-decoration: none;">
+                        <button style="
+                            background-color: #4CAF50; 
+                            color: white; 
+                            padding: 10px 20px; 
+                            font-size: 16px; 
+                            border: none; 
+                            border-radius: 5px; 
+                            cursor: pointer;">
+                            Start Survey S11
+                        </button>
+                    </a>
+                </div>
+                
+                """,
+                unsafe_allow_html=True
+            )
         assistant_message = {"role": "assistant",
                              "content": response}
         st.session_state.history.append(assistant_message)
