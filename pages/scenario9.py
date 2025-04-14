@@ -38,7 +38,7 @@ def generate_response():
         "Recent exhibitions have included \"Legion: life in the Roman army\" and \"Michelangelo: the last decades,\" which have been particularly popular among visitors [1]. These exhibitions highlight the museum's ability to curate engaging and educational displays that attract a wide audience. Additionally, the museum's temporary exhibitions often feature artifacts from around the world, showcasing its global reach and influence [4].\n\n"
         "References:\n"
         "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
-        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%22z5few6y5%.com\n"
+        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%20z5few6y5%.com\n"
         "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
         "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
 
@@ -119,7 +119,7 @@ def main():
             st_star_rating(
                 label="",
                 maxValue=5,
-                size=22,
+                size=20,
                 defaultValue=fixed_rating,
                 key="rating",
                 customCSS="div { margin-bottom: 0px; }",
@@ -176,7 +176,6 @@ def main():
 
         with st.chat_message("assistant"):
             response = st.write_stream(generate_response())
-            st.markdown(response, unsafe_allow_html=True)
             st.markdown(
                 """
                 <div style="margin-top: 10px;">

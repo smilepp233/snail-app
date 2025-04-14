@@ -176,7 +176,6 @@ def main():
 
         with st.chat_message("assistant"):
             response = st.write_stream(generate_response())
-            st.markdown(response, unsafe_allow_html=True)
             st.markdown(
                 """
                 <div style="margin-top: 10px;">
