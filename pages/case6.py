@@ -22,6 +22,7 @@ def main():
         .warning {
             color: #FF4500;
             font-weight: bold;
+            font-size: 28px;
             text-align: center;
         }
         .content {
@@ -86,7 +87,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Title and intro
-    st.markdown('<div class="title">Snail Sleep: A Critical Assignment 🐌</div>',
+    st.markdown('<div class="title">The British Museum: A Critical Assignment</div>',
                 unsafe_allow_html=True)
     st.markdown('<div class="warning">Worth 50% of the Course Grade</div>',
                 unsafe_allow_html=True)
