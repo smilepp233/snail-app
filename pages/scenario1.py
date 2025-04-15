@@ -119,7 +119,7 @@ def main():
             st_star_rating(
                 label="",
                 maxValue=5,
-                size=20,
+                size=22,
                 defaultValue=fixed_rating,
                 key="rating",
                 customCSS="div { margin-bottom: 0px; }",
