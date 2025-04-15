@@ -183,12 +183,12 @@ def main():
             st.markdown(
                 """
                 <div style="margin-top: 10px;">
-                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                    <span style="font-size: 24px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
                         🤖 AI自信水平：2/10
                     </span>
                 </div>
                 <div style="margin-top: 10px;">
-                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                    <span style="font-size: 24px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
                         「Z」 AI：我認為我的資訊的可信度為 2 分（滿分 10 分）。
                     </span>
                 </div>
