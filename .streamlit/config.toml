@@ -2,4 +2,5 @@
 runOnSave = true
 [client]
 showSidebarNavigation = false
-    
+[theme]
+base = "dark"
