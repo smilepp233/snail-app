@@ -2,8 +2,8 @@ import streamlit as st
 
 # Set page configuration
 st.set_page_config(
-    page_title="Snail Sleep Assignment",
-    page_icon="🐌",
+    page_title="The British Museum Assignment",
+    page_icon="📖",
     layout="wide"
 )
 
