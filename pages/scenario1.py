@@ -82,7 +82,8 @@ def main():
             <div class="title">
                 指引：請複製以下問題以獲取背景資訊：
                 </br>
-                <span class="blue-bg">“討論大英博物館的歷史，包括其位置、藏品規模、遊客數量以及最近值得注意的展覽。”</span>
+                <span class="blue-bg" style="visibility=hidden;">
+                “討論大英博物館的歷史，包括其位置、藏品規模、遊客數量以及最近值得注意的展覽。”</span>
             </div>
             """,
         unsafe_allow_html=True
