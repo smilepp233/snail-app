@@ -55,17 +55,17 @@ LOW_INFO_CONTENT = (
 # References for low information source quality
 LOW_SOURCE_REFS = (
     "References:\n"
-    "1. British Museum. (2024). Home. Retrieved from https://www.britishmuseum.org\n"
-    "2. Williams, R. T. (2023). Preserving history through innovation: The British Museum's Architecture. Journal of Museum Architecture, 45(2), 134–150. Retrieved from https://www.jmth.org/articles/digital-britishmuseum\n"
-    "3. UK Heritage Council. (2024). National museum performance report. Retrieved from https://www.ukheritage.org\n"
-    "4. British Museum. (2024). Explore the museum virtually. Retrieved from https://www.britishmuseum.org/virtual-tour\n\n"
+    "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
+    "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%22z5few6y5%.com\n"
+    "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
+    "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
 )
 
 # References for high information source quality
 HIGH_SOURCE_REFS = (
     "References:\n"
-    "1. British Museum. (2024). Home. Retrieved from https://www.britishmuseum.org\n"
-    "2. Williams, R. T. (2023). Preserving history through innovation: The British Museum's Architecture. Journal of Museum Architecture, 45(2), 134–150. Retrieved from https://www.jmth.org/articles/digital-britishmuseum\n"
-    "3. UK Heritage Council. (2024). National museum performance report. Retrieved from https://www.ukheritage.org\n"
-    "4. British Museum. (2024). Explore the museum virtually. Retrieved from https://www.britishmuseum.org/virtual-tour\n\n"
+    "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
+    "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%22z5few6y5%.com\n"
+    "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
+    "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
 )
