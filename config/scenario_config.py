@@ -25,7 +25,7 @@ SCENARIOS = {
 }
 
 # Content for low information completeness
-LOW_INFO_CONTENT = (
+HIGH_INFO_CONTENT = (
     "## 大英博物館簡介\n"
     "大英博物館位於英國倫敦布魯姆斯伯里，是世界上最大、最重要的人類歷史文化博物館之一。該博物館成立於 1753 年，是第一個公共國家博物館，以漢斯·斯隆爵士的藏品為基礎建立。博物館於 1759 年向公眾開放，現已發展成為一流的文化機構 [1]。\n\n"
     "## 位置和建築\n"
