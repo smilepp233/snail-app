@@ -88,6 +88,8 @@ def main():
             """,
         unsafe_allow_html=True
     )
+    st.caption(
+        "Scenario 1 | 0 Missed | 0 Low Source | 0 Low Self Score | 0 Low Public Score")
 
     if "history" not in st.session_state:
         st.session_state.history = []

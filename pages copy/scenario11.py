@@ -26,21 +26,22 @@ def generate_response():
     """
 
     response = (
-        "## 大英博物館簡介\n"
-        "大英博物館是位於倫敦的著名機構。它建立已久，有很多有趣的東西可以看。博物館很大，每年都有很多遊客。它以漢斯·斯隆爵士的收藏為基礎建立，其中包括來自世界各地的各種物品 [1]。\n\n"
-        "## 位置和建築\n"
-        "博物館位於倫敦一個美麗的地區，名叫布魯姆斯伯里。它有一個非常令人印象深刻的大庭院。人們喜歡參觀，因為這裡交通便利，而且景色優美。博物館的地理位置使其成為遊客和當地人的熱門目的地 [2]。\n\n"
-        "## 收藏規模和意義\n"
-        "大英博物館有很多東西，包括一些著名的東西。雖然沒有全部展出，但展出的內容非常有趣。博物館對於了解歷史和文化很重要。它的藏品十分豐富，跨越了人類多年的歷史 [3]。\n\n"
-        "## 訪客數量\n"
-        "每年都有很多人參觀大英博物館。 2024年，遊客數量相當可觀，比前幾年增加。博物館總是很忙，尤其是在假日和夏季[4]。\n\n"
-        "## 近期值得關注的展覽\n"
-        "博物館最近舉辦了一些不錯的展覽。它們總是在變化，所以總是會有一些新的東西可以看。人們似乎很喜歡它們，它們也使博物館成為了一個受歡迎的目的地[1]。博物館也舉辦各種活動，為遊客帶來樂趣。此外，博物館的咖啡館也很不錯，為那些需要休息一下的遊客提供各種小吃和飲料。禮品店也值得一去，有許多獨特的物品可供購買 [4]。\n\n"
+        "## Introduction to the British Museum \n"
+        "The British Museum, located in Bloomsbury, London, is one of the world's largest and most important museums of human history and culture. Established in 1753, it was the first public national museum, founded on the collections of Sir Hans Sloane. The museum opened to the public in 1759 and has since grown to become a premier cultural institution [1].\n\n"
+        "## Location and Architecture\n"
+        "Situated on Great Russell Street, the museum is easily accessible via several London Underground stations. Its iconic Great Court, designed by Foster and Partners, is a notable architectural feature, providing a spacious environment for visitors to explore. The museum's location in Bloomsbury makes it a central hub for cultural activities in London [2].\n\n"
+        "## Collection Size and Significance\n"
+        "The British Museum houses over 8 million objects, documenting human culture from its beginnings to the present. This vast collection includes artifacts such as the Rosetta Stone and the Elgin Marbles. These items are not only significant for their historical value but also for their cultural and educational importance. The collection spans over two million years of human history, making it one of the most comprehensive in the world [3].\n\n"
+        "## Visitor Numbers\n"
+        "In recent years, the British Museum has consistently been one of the most visited attractions in the UK. In 2024, it welcomed approximately 6.5 million visitors, marking a significant increase from previous years. This high attendance is attributed to its engaging exhibitions and its status as a cultural icon [4].\n\n"
+        "## Notable Recent Exhibitions\n"
+        "Recent exhibitions have included \"Legion: life in the Roman army\" and \"Michelangelo: the last decades,\" which have been particularly popular among visitors [1]. These exhibitions highlight the museum's ability to curate engaging and educational displays that attract a wide audience. Additionally, the museum's temporary exhibitions often feature artifacts from around the world, showcasing its global reach and influence [4].\n\n"
         "References:\n"
         "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
         "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%20z5few6y5%.com\n"
         "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
         "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
+
     )
     for char in response:
         yield char
@@ -80,14 +81,13 @@ def main():
     st.markdown(
         """
             <div class="title">
-                指引：請複製以下問題以獲取背景資訊：
-                </br>
-                <span class="blue-bg" style="visibility=hidden;">
-                “討論大英博物館的歷史，包括其位置、藏品規模、遊客數量以及最近值得注意的展覽。”</span>
+                Instruction: Please copy the following question to receive background information: <span class="blue-bg">"Discuss the history of the British Museum, including its location, collection size, visitor numbers, and notable recent exhibitions."</span>
             </div>
             """,
         unsafe_allow_html=True
     )
+    st.caption(
+        "Scenario 11 | 0 ALL | 0 Low Source | 1 High Self Rating | 0 Low Public Rating")
 
     if "history" not in st.session_state:
         st.session_state.history = []
@@ -102,7 +102,7 @@ def main():
 
    # Initialize rating default value (but don't store in session_state yet)
     fixed_rating = 1.5
-    rating_count = "12萬人"
+    rating_count = "120.3K"
 
     if "rating" not in st.session_state:
         st.session_state.rating = fixed_rating
@@ -110,44 +110,42 @@ def main():
     with st.container(border=True):
         st.markdown(
             """
-            <h4>「Z」AI 是一種先進的人工智慧搜尋引擎和聊天機器人工具，它利用大型語言模型 (LLM) 為用戶查詢提供詳細而準確的資訊。</h4>
+            <h4>"Z" AI Background</h4>
             """,
             unsafe_allow_html=True
         )
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
+        col1, col2 = st.columns([1, 3])
+        with col1:
             st_star_rating(
                 label="",
                 maxValue=5,
-                size=24,
+                size=20,
                 defaultValue=fixed_rating,
                 key="rating",
                 customCSS="div { margin-bottom: 0px; }",
                 read_only=True
             )
 
-        with col1:
-            st.markdown(
-                """
-                <div style="display: flex; align-items: center; height: 100%; justify-content: center;">
-                    <span style="font-size: 24px; font-weight: bold;">
-                        <span style="color: #2E8B57;">用戶滿意評分</span>
-                    </span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-        with col3:
+        with col2:
             st.markdown(
                 f"""
                 <div style="display: flex; align-items: center; height: 100%;">
-                    <span style="font-size: 22px; font-weight: bold;">
-                        {fixed_rating}/5.0 ({rating_count})
+                    <span style="font-size: 24px; font-weight: bold;">
+                        {fixed_rating}/5.0 (rated by {rating_count})
                     </span>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
+        st.markdown(
+            """
+            <div style="margin-top: 10px; margin-bottom: 30px;">
+                "Z" AI is an advanced artificial intelligence-powered search engine and chatbot tool that utilizes large language models (LLMs) to provide detailed and accurate information in response to user queries.
+            </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     # Initialize feedback keys if they don't exist
     for i in range(len(st.session_state.history)):
@@ -181,13 +179,13 @@ def main():
             st.markdown(
                 """
                 <div style="margin-top: 10px;">
-                    <span style="font-size: 24px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
-                        🤖 AI自信水平：2/10
+                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                        🤖 Confidence Level: 8/10
                     </span>
                 </div>
                 <div style="margin-top: 10px;">
-                    <span style="font-size: 24px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
-                        「Z」 AI：我認為我的資訊的可信度為 2 分（滿分 10 分）。
+                    <span style="font-size: 16px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
+                        "Z" AI: I would rate the confidence level of my output as an 8 out of 10.
                     </span>
                 </div>
                 <div style="margin-top: 20px; text-align: center;">
@@ -200,7 +198,7 @@ def main():
                             border: none; 
                             border-radius: 5px; 
                             cursor: pointer;">
-                            Start Survey S1
+                            Start Survey S11
                         </button>
                     </a>
                 </div>
