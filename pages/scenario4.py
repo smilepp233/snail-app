@@ -7,7 +7,7 @@ def main():
     custom_star_rating = 4.5  # 自定义星级评分值 (0.0-5.0)
     custom_rating_count = 12  # 自定义评分人数 (以K为单位，例如150.5表示150,500人)
     custom_level_confidence = 8
-    survey_href = "https://hkbu.questionpro.com/t/AVqakZ55xw"  # 自定义调查链接
+    survey_href = "https://hkbu.questionpro.com/t/AVqakZ56do"  # 自定义调查链接
     # 使用自定义值调用创建页面函数
     create_museum_scenario_page(
         scenario_num=4,
