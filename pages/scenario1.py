@@ -37,10 +37,10 @@ def generate_response():
         "## 近期值得關注的展覽\n"
         "博物館最近舉辦了一些不錯的展覽。它們總是在變化，所以總是會有一些新的東西可以看。人們似乎很喜歡它們，它們也使博物館成為了一個受歡迎的目的地[1]。博物館也舉辦各種活動，為遊客帶來樂趣。此外，博物館的咖啡館也很不錯，為那些需要休息一下的遊客提供各種小吃和飲料。禮品店也值得一去，有許多獨特的物品可供購買 [4]。\n\n"
         "References:\n"
-        "1. Johnson, A. (2024). My Awesome Trip to The British Museum! Retrieved from https://peterblog.com\n"
-        "2. Terry, B (2024). Best Places to Visit in London? Sharing with You. Retrieved from https://travel/%20z5few6y5%.com\n"
-        "3. Claudia, C (2024). All you need to know about The British Museum. Retrieved from https://www.tripadvisor.co.uk/BritishMuseum.html\n"
-        "4. Wilson, K. (2023). Top 10 Things to Do in The British Museum [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=example\n\n"
+        "1. Anonymous. (2008). My Trip to The British Museum! Retrieved from https://n&tab=TT&sl=en&tl=zh-TW&op.com\n"
+        "2. Terry, B (2004). Sharing My Trip to London with You. Retrieved from https://en&tl=zh-TW&text=make%20the%20below%\n"
+        "3. Anonymous. (2006). Visiting UK Museums. Retrieved from https://%20uk%203%3A%0A%0A.html\n"
+        "4. Wilson, K. (n.d). Experiences in The British Museum. Retrieved from https://?q=21899&tip=sid&clean=0\n\n"
     )
     for char in response:
         yield char
