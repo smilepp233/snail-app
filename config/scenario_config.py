@@ -54,7 +54,7 @@ LOW_INFO_CONTENT = (
 
 # References for low information source quality
 LOW_SOURCE_REFS = (
-    "References:\n"
+    "Referencess:\n"
     "1. Anonymous. (2008). My Trip to The British Museum! Retrieved from https://n&tab=TT&sl=en&tl=zh-TW&op.com\n"
     "2. Terry, B (2004). Sharing My Trip to London with You. Retrieved from https://en&tl=zh-TW&text=make%20the%20below%\n"
     "3. Anonymous. (2006). Visiting UK Museums. Retrieved from https://%20uk%203%3A%0A%0A.html\n"
