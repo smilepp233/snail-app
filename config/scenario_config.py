@@ -54,18 +54,18 @@ LOW_INFO_CONTENT = (
 
 # References for low information source quality
 LOW_SOURCE_REFS = (
-    "References:\n"
-    "1. Anonymous. (2008). My Trip to The British Museum! Retrieved from https://n&tab=TT&sl=en&tl=zh-TW&op.com\n"
-    "2. Terry, B (2004). Sharing My Trip to London with You. Retrieved from https://en&tl=zh-TW&text=make%20the%20below%\n"
-    "3. Anonymous. (2006). Visiting UK Museums. Retrieved from https://%20uk%203%3A%0A%0A.html\n"
-    "4. Wilson, K. (n.d). Experiences in The British Museum. Retrieved from https://?q=21899&tip=sid&clean=0\n\n"
+    "参考文献:\n"
+    "1. 匿名. (2008). 我的大英博物馆之旅！ 取自 https://n&tab=TT&sl=en&tl=zh-CN&op.com\n"
+    "2. 特里. (2004). 与你分享我的伦敦之旅。 取自 https://en&tl=zh-CN&text=make%20the%20below%\n"
+    "3. 匿名. (2006). 参观英国博物馆。 取自 https://%20uk%203%3A%0A%0A.html\n"
+    "4. 威爾森. (n.d.). 大英博物馆的体验。 取自 https://?q=21899&tip=sid&clean=0\n"
 )
 
 # References for high information source quality
 HIGH_SOURCE_REFS = (
-    "References:\n"
-    "1. Anonymous. (2008). My Trip to The British Museum! Retrieved from https://n&tab=TT&sl=en&tl=zh-TW&op.com\n"
-    "2. Terry, B (2004). Sharing My Trip to London with You. Retrieved from https://en&tl=zh-TW&text=make%20the%20below%\n"
-    "3. Anonymous. (2006). Visiting UK Museums. Retrieved from https://%20uk%203%3A%0A%0A.html\n"
-    "4. Wilson, K. (n.d). Experiences in The British Museum. Retrieved from https://?q=21899&tip=sid&clean=0\n\n"
+    "参考文献:\n"
+    "1. 大英博物馆. (2024). 官方网站主页。取自 https://www.britishmuseum.org\n"
+    "2. 威廉姆斯. (2023). 通过创新保存历史：大英博物馆的建筑。《博物馆建筑杂志》，45(2)，134–150。取自 https://www.jmth.org/articles/digital-britishmuseum\n"
+    "3. 英国遗产委员会. (2024). 国家博物馆绩效报告。取自 https://www.ukheritage.org\n"
+    "4. 大英博物馆. (2024). 有趣地探索博物馆。取自 https://www.britishmuseum.org/virtual-tour\n"
 )
