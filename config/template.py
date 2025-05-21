@@ -89,10 +89,10 @@ def create_museum_scenario_page(scenario_num, custom_star_rating=None, custom_ra
     st.markdown(
         """
             <div class="title">
-                指引：請複製以下問題以獲取背景資訊：
+                指引：请复制以下问题以获取背景资讯
                 </br>
                 <span class="blue-bg" style="visibility=hidden;">
-                “討論大英博物館的歷史，包括其位置、藏品規模、遊客數量以及最近值得注意的展覽。”</span>
+                “讨论大英博物馆的历史，包括其位置、藏品规模、游客数量以及最近值得注意的展览。”</span>
             </div>
             """,
         unsafe_allow_html=True
@@ -127,7 +127,7 @@ def create_museum_scenario_page(scenario_num, custom_star_rating=None, custom_ra
     with st.container(border=True):
         st.markdown(
             """
-            <h4>「Z」AI 是一種先進的人工智慧搜尋引擎和聊天機器人工具，它利用大型語言模型 (LLM) 為用戶查詢提供詳細而準確的資訊。</h4>
+            <h4>「Z」AI 是一种先进的人工智慧搜寻引擎和聊天机器人工具，它利用大型语言模型 (LLM) 为用户查询提供详细而准确的资讯。</h4>
             """,
             unsafe_allow_html=True
         )
@@ -148,7 +148,7 @@ def create_museum_scenario_page(scenario_num, custom_star_rating=None, custom_ra
                 """
                 <div style="display: flex; align-items: center; height: 100%; justify-content: center;">
                     <span style="font-size: 24px; font-weight: bold;">
-                        <span style="color: #2E8B57;">用戶滿意評分</span>
+                        <span style="color: #2E8B57;">用戶满意評分</span>
                     </span>
                 </div>
                 """,
@@ -159,7 +159,7 @@ def create_museum_scenario_page(scenario_num, custom_star_rating=None, custom_ra
                 f"""
                 <div style="display: flex; align-items: center; height: 100%;">
                     <span style="font-size: 22px; font-weight: bold;">
-                        {star_rating}/5.0 ({rating_count} 萬人)
+                        {star_rating}/5.0 ({rating_count} 万人)
                     </span>
                 </div>
                 """,
@@ -190,7 +190,7 @@ def create_museum_scenario_page(scenario_num, custom_star_rating=None, custom_ra
                 </div>
                 <div style="margin-top: 10px;">
                     <span style="font-size: 24px; font-weight: bold; color: #2E8B57; border: 1px solid #2E8B57; padding: 5px; border-radius: 5px;">
-                    「Z」 AI：我認為我的資訊的可信度為 {f"{confidence_level} 分"} （滿分 10 分）。                 
+                    「Z」 AI：我认为我的资讯的可信度为 {f"{confidence_level} 分"} （滿分 10 分）。                 
                     </span>
                 </div>
                 <div style="margin-top: 20px; text-align: center;">
