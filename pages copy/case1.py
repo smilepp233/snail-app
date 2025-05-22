@@ -2,7 +2,7 @@ import streamlit as st
 
 # Set page configuration
 st.set_page_config(
-    page_title="大英博物馆：一项重要任务",
+    page_title="大英博物馆：一项重要作业",
     page_icon="📖",
     layout="wide"
 )
