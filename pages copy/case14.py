@@ -1,9 +1,8 @@
 import streamlit as st
 
 # Set page configuration
-# Set page configuration
 st.set_page_config(
-    page_title="The British Museum Assignment",
+    page_title="大英博物馆：一项重要任务",
     page_icon="📖",
     layout="wide"
 )
@@ -23,7 +22,6 @@ def main():
             color: #FF4500;
             font-weight: bold;
             text-align: center;
-            font-size: 28px;
         }
         .content {
             font-size: 24px;
@@ -96,17 +94,17 @@ def main():
     # Description and purpose
     st.markdown("""
     <div class="content">
-        <h2>Assignment Overview</h2>
+        <h2>任务概述</h2>
         <div class="content">   
-    作為一名即將畢業的Final Year學生，你們目前正在選修畢業所需的最後一門選修科目，課程名稱為「目的地行銷概論- Introduction to Destination Marketing」。為了滿足你的畢業要求，通過這門課程至關重要。
+    作为一名即将毕业的Final Year学生，你们目前正在选修毕业所需的最后一门选修科目，课程名称为「目的地行销概论- Introduction to Destination Marketing」。为了满足你的毕业要求，通过这门课程至关重要。
+
+你的讲师发布了一项重要的个人作业，该作业占你<span class="grade"> 最终成绩 50% </span>。这项作业的成功至关重要，<span class="grade">因为失败可能会导致课程失败并随后延迟毕业。</span>
  
-你的講師發佈了一項重要的個人作業，該作業佔你<span class="grade"> 最終成績的 50% </span>。這項作業的成功至關重要，<span class="grade">因為失敗可能會導致課程失敗並隨後延遲畢業。</span>
+对于这项个人作业，你需要写一篇关于英国目的地的文章，并专注于<span class="grade">大英博物館 </span>。作页必須全面 <span class="dicussion"> 讨论大英博物馆的历史，包括其位置、藏品规模、游客数量和最近值得注意的展览。</span>
  
-對於這項個人作業，你需要寫一篇關於英國目的地的文章，並專注於<span class="grade">大英博物館 </span>。作業必須全面 <span class="dicussion"> 討論大英博物館的歷史，包括其位置、藏品規模、遊客數量和最近值得注意的展覽。</span>
+为了帮助您完成这项作业，您可以使用 <span class="blue">「Z」AI </span>，这是一种先进的人工智慧搜寻引擎和聊天机器人工具，它利用大型语言模型 (LLM) 来响应用户查询，提供详细而准确的资讯。<span class="blue">我们鼓励您利用此工具来完成您的作业</span>
  
-為了幫助您完成這項作業，您可以使用 <span class="blue">「Z」AI </span>，這是一種先進的人工智慧搜尋引擎和聊天機器人工具，它利用大型語言模型 (LLM) 來響應用戶查詢，提供詳細而準確的資訊。<span class="blue">我們鼓勵您利用此工具來完成您的作業。</span>
- 
-指引：請複製以下問題以獲取大英博物館的背景資訊： <span class="yellow">“討論大英博物館的歷史，包括其位置、藏品規模、遊客數量以及最近值得注意的展覽。”</span>
+指引：请复制以下问题以获取大英博物馆的背景资讯：： <span class="yellow">“讨论大英博物馆的历史，包括其位置、藏品规模、游客数量以及最近值得注意的展览。”</span>
     </div>
     </br>
         <div class="">As a university student in your final semester, you are currently enrolled in the last free elective course required for your graduation, titled "Introduction to Destination Marketing." To fulfill your graduation requirements, it is crucial that you pass this course.
@@ -140,8 +138,8 @@ Instruction: Please copy the following question to receive background informatio
         with col3:
             st.markdown('<div class="button-container">',
                         unsafe_allow_html=True)
-            st.page_link("pages/scenario14.py",
-                         label="Start Assignment", icon="🚀")
+            st.page_link("pages/scenario1.py",
+                         label="开始作业", icon="🚀")
             st.markdown('</div>', unsafe_allow_html=True)
 
 
