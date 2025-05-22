@@ -36,11 +36,11 @@ def generate_response():
         "每年都有很多人參觀大英博物館。 2024年，遊客數量相當可觀，比前幾年增加。博物館總是很忙，尤其是在假日和夏季[4]。\n\n"
         "## 近期值得關注的展覽\n"
         "博物館最近舉辦了一些不錯的展覽。它們總是在變化，所以總是會有一些新的東西可以看。人們似乎很喜歡它們，它們也使博物館成為了一個受歡迎的目的地[1]。博物館也舉辦各種活動，為遊客帶來樂趣。此外，博物館的咖啡館也很不錯，為那些需要休息一下的遊客提供各種小吃和飲料。禮品店也值得一去，有許多獨特的物品可供購買 [4]。\n\n"
-        "References:\n"
-        "1. Anonymous. (2008). My Trip to The British Museum! Retrieved from https://n&tab=TT&sl=en&tl=zh-TW&op.com\n"
-        "2. Terry, B (2004). Sharing My Trip to London with You. Retrieved from https://en&tl=zh-TW&text=make%20the%20below%\n"
-        "3. Anonymous. (2006). Visiting UK Museums. Retrieved from https://%20uk%203%3A%0A%0A.html\n"
-        "4. Wilson, K. (n.d). Experiences in The British Museum. Retrieved from https://?q=21899&tip=sid&clean=0\n\n"
+        "参考文献:\n"
+        "1. 匿名. (2008). 我的大英博物馆之旅！ 取自 https://n&tab=TT&sl=en&tl=zh-CN&op.com\n"
+        "2. 特里. (2004). 与你分享我的伦敦之旅。 取自 https://en&tl=zh-CN&text=make%20the%20below%\n"
+        "3. 匿名. (2006). 参观英国博物馆。 取自 https://%20uk%203%3A%0A%0A.html\n"
+        "4. 威爾森. (n.d.). 大英博物馆的体验。 取自 https://?q=21899&tip=sid&clean=0\n"
     )
     for char in response:
         yield char
